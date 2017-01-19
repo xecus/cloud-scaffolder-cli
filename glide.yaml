@@ -1,0 +1,4 @@
+package: cloud-scaffolder-cli
+import:
+- package: github.com/joho/godotenv
+- package: github.com/urfave/cli
