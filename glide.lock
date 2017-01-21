@@ -1,8 +1,0 @@
-hash: 89abd6ee3a91074a03fc94062a9327e034b8481e9e0f70d0050331506d79c70a
-updated: 2017-01-19T09:03:43.524035213Z
-imports:
-- name: github.com/joho/godotenv
-  version: 726cc8b906e3d31c70a9671c90a13716a8d3f50d
-- name: github.com/urfave/cli
-  version: f1be59ff3d239f0942b201619030d302bce912cc
-testImports: []

@@ -1,10 +1,10 @@
 package main
 
 import (
-	cloud_scaffolder "cloud-scaffolder"
 	"fmt"
 	"github.com/joho/godotenv"
 	"github.com/urfave/cli"
+	cloud_scaffolder "github.com/xecus/cloud-scaffolder"
 	"log"
 	"os"
 )
@@ -23,6 +23,13 @@ func scaffold(c *cli.Context) {
 	cloud_scaffolder.PrepareVagrantControl()
 	cloud_scaffolder.GenerateVagrantFile()
 
+	//a := cloud_scaffolder.GenerateVagrantModel()
+	//a.Vms[0].DeleteAlltVm(i)
+	//s := a.Vms[0].CreateVm(i)
+	//log.Println(s)
+
+	v := cloud_scaffolder.GetVm(i)
+	v.ShowVm()
 }
 
 func serve(c *cli.Context) {
