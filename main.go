@@ -16,20 +16,25 @@ func scaffold(c *cli.Context) {
 	}
 	fmt.Println("added task: ", c.Args().First())
 
+	// Init DB
 	i := cloud_scaffolder.Impl{}
 	i.InitModelDb()
 	i.InitSchema()
 
+	// Prepare
 	cloud_scaffolder.PrepareVagrantControl()
 	cloud_scaffolder.GenerateVagrantFile()
 
-	//a := cloud_scaffolder.GenerateVagrantModel()
-	//a.Vms[0].DeleteAlltVm(i)
-	//s := a.Vms[0].CreateVm(i)
-	//log.Println(s)
+	cloud_scaffolder.DeleteAlltVm(i)
 
-	v := cloud_scaffolder.GetVm(i)
-	v.ShowVm()
+	a := cloud_scaffolder.GenerateVagrantModel()
+
+	for _, vm := range a.Vms {
+		vm.CreateVm(i)
+	}
+
+	cloud_scaffolder.Serve(&i)
+
 }
 
 func serve(c *cli.Context) {
